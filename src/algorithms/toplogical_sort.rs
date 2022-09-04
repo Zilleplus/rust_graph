@@ -1,7 +1,16 @@
 use std::collections::HashSet;
+use crate::Graph;
 
-use crate::{Graph};
-
+/// Loops through the graph in a breadth first order.
+/// 
+/// # Arguments
+/// 
+/// * `g` - The graph
+/// * `F` - Function called with node
+/// * `start` - node to start the depth first search
+/// 
+/// # Returns
+/// * `Result<Vec<u32>, String>' - List of nodes or string with error.
 pub fn topological_sort<G>(graph: &G) -> Result<Vec<u32>, String>
     where G : Graph
 {
@@ -50,7 +59,7 @@ fn visit<G>(n: u32, graph: &G, out: &mut Vec<u32>, visited: &mut HashSet<u32>, v
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::adjacent_list_graph::AdjacentListGraph;
+    use crate::graphs::*;
 
     #[test]
     fn topological_sort_test() {
