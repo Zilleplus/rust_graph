@@ -5,7 +5,6 @@ pub struct AdjacentListGraph {
     number_of_nodes: u32,
 }
 
-
 impl AdjacentListGraph{
     pub fn new() -> AdjacentListGraph
     {

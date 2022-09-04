@@ -2,6 +2,13 @@ use std::collections::HashSet;
 
 use crate::Graph;
 
+/// Loops through the graph in a depth first order.
+/// 
+/// # Arguments
+/// 
+/// * `g` - The graph
+/// * `F` - Function called with node
+/// * `start` - node to start the depth first search
 pub fn depth_first_search<F, G>(g: &G, f: &mut F, start: u32) -> ()
 where
     F: FnMut(u32),
@@ -31,22 +38,21 @@ where
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::adjacent_list_graph::*;
-    use crate::{add_double_edge, Graph};
+    use crate::graphs::*;
 
     #[test]
     fn depth_first_search_test() {
         let mut g = AdjacentListGraph::new();
         let n0 = g.add_node();
         let n1 = g.add_node();
-        add_double_edge(&mut g, n0, n1);
+        g.add_double_edge( n0, n1);
         let n2 = g.add_node();
-        add_double_edge(&mut g, n1, n2);
+        g.add_double_edge(n1, n2);
 
         let n3 = g.add_node();
         let n4 = g.add_node();
-        add_double_edge(&mut g, n1, n3);
-        add_double_edge(&mut g, n1, n4);
+        g.add_double_edge(n1, n3);
+        g.add_double_edge(n1, n4);
 
         let mut res: Vec<u32> = Vec::new();
 

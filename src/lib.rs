@@ -1,7 +1,5 @@
-pub mod depth_first_search;
-pub mod breadth_first_search;
-pub mod adjacent_list_graph;
-pub mod toplogical_sort;
+mod algorithms;
+mod graphs;
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct Edge {
@@ -15,13 +13,11 @@ pub trait Graph {
 
     fn add_node(&mut self) -> u32;
     fn num_of_nodes(&self) -> u32;
-}
 
-pub fn add_double_edge<G>(g: &mut G, from: u32, to: u32)
-where G : Graph
-{
-    g.add_edge(from, to);
-    g.add_edge(to, from);
+    fn add_double_edge(&mut self, from: u32, to: u32){
+        self.add_edge(from, to);
+        self.add_edge(to, from);
+    }
 }
 
 #[cfg(test)]
