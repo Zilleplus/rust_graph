@@ -46,14 +46,14 @@ mod tests {
         let mut g = AdjacentListGraph::new();
         let n0 = g.add_node();
         let n1 = g.add_node();
-        g.add_double_edge(n0, n1);
+        g.add_double_edge(n0, n1, 1);
         let n2 = g.add_node();
-        g.add_double_edge(n1, n2);
+        g.add_double_edge(n1, n2, 1);
 
         let n3 = g.add_node();
         let n4 = g.add_node();
-        g.add_double_edge(n1, n3);
-        g.add_double_edge(n1, n4);
+        g.add_double_edge(n1, n3, 1);
+        g.add_double_edge(n1, n4, 1);
 
         let mut res: Vec<u32> = Vec::new();
 

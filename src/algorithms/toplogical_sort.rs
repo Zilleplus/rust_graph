@@ -73,15 +73,15 @@ mod tests {
         let n6 = g.add_node();
         let n7 = g.add_node();
 
-        g.add_edge(n0.clone(), n2.clone());
-        g.add_edge(n2.clone(), n4.clone());
-        g.add_edge(n4.clone(), n7.clone());
+        g.add_edge(n0.clone(), n2.clone(), 1);
+        g.add_edge(n2.clone(), n4.clone(), 1);
+        g.add_edge(n4.clone(), n7.clone(), 1);
 
-        g.add_edge(n1.clone(), n3.clone());
-        g.add_edge(n3.clone(), n4.clone());
+        g.add_edge(n1.clone(), n3.clone(), 1);
+        g.add_edge(n3.clone(), n4.clone(), 1);
 
-        g.add_edge(n5.clone(), n6.clone());
-        g.add_edge(n6.clone(), n7.clone());
+        g.add_edge(n5.clone(), n6.clone(), 1);
+        g.add_edge(n6.clone(), n7.clone(), 1);
 
         let expected_sorted_nodes = vec![n5, n6, n1, n3, n0, n2,n4, n7];
         let sorted_nodes = topological_sort(&g).unwrap();

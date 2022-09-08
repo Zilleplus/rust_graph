@@ -19,11 +19,11 @@ impl Graph for AdjacentListGraph {
         self.edges[i].clone()
     }
 
-    fn add_edge(&mut self, from: u32, to: u32) -> Edge {
+    fn add_edge(&mut self, from: u32, to: u32, cost: u32) -> Edge {
         assert!(from < self.number_of_nodes);
         assert!(to < self.number_of_nodes);
 
-        let new_edge = Edge { from, to };
+        let new_edge = Edge { from, to, cost };
         let from_i = usize::try_from(new_edge.from).unwrap();
         
         // Don't add the edge if it's already present.
